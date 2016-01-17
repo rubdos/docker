@@ -19,10 +19,13 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
-RUN echo y | android update sdk --all --no-ui --filter "platform-tools,build-tools-23.0.2,build-tools-19.1.0,android-23,extra-android-support,extra-android-m2repository"
+RUN echo y | android update sdk --all --no-ui --filter "platform-tools,build-tools-23.0.2,build-tools-19.1.0,android-23,extra-android-support,extra-android-m2repository,sys-img-armeabi-v7a-android-21"
 
 RUN which adb
 RUN which android
+
+# Create an Android Virtual Device
+RUN android create avd --force -n test -t android-21 --abi armeabi-v7a
 
 RUN apt-get clean
 RUN mkdir -p /opt/workspace
