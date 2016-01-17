@@ -9,7 +9,9 @@ ENV GRADLE_HOME /opt/gradle-2.10
 ENV PATH ${PATH}:${GRADLE_HOME}/bin
 
 COPY build.gradle /tmp/
-RUN cd /tmp/ && gradle test --refresh-dependencies
+COPY src /tmp/src
+RUN cd /tmp/ && gradle test
+RUN ls /tmp/
 RUN rm -rf /tmp/*
 
 WORKDIR /opt/workspace
