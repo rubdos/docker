@@ -25,7 +25,7 @@ RUN which adb
 RUN which android
 
 # Create an Android Virtual Device
-RUN android create avd --force -n test -t android-21 --abi armeabi-v7a
+RUN echo "no" | android create avd --force -n test -t android-21 --abi armeabi-v7a
 
 RUN apt-get clean
 RUN mkdir -p /opt/workspace
