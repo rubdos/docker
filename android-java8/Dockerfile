@@ -26,6 +26,7 @@ RUN which android
 
 # Create an Android 5.0 Virtual Device
 RUN echo "no" | android create avd --force -n test -t android-21 --abi armeabi-v7a
+RUN SHELL=/bin/sh emulator -avd test -no-skin -no-audio -no-window & adb wait-for-device
 
 RUN apt-get clean
 RUN mkdir -p /opt/workspace
