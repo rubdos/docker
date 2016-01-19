@@ -19,13 +19,13 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
-RUN echo y | android update sdk --all --no-ui --filter "platform-tools,build-tools-23.0.2,build-tools-19.1.0,android-23,extra-android-support,extra-android-m2repository,android-21,sys-img-armeabi-v7a-android-21"
+RUN echo y | android update sdk --all --no-ui --filter "platform-tools,build-tools-23.0.2,build-tools-19.1.0,android-23,extra-android-support,extra-android-m2repository,android-21,sys-img-x86-android-21"
 
 RUN which adb
 RUN which android
 
 # Create an Android 5.0 Virtual Device
-RUN echo "no" | android create avd --force -n test -t android-21 --abi armeabi-v7a
+RUN echo "no" | android create avd --force -n test -t android-21 --abi x86
 RUN SHELL=/bin/sh emulator -avd test -no-skin -no-audio -no-window & adb wait-for-device
 
 RUN apt-get clean
