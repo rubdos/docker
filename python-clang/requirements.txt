@@ -1,0 +1,2 @@
+libclang-py3
+nose
