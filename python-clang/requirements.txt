@@ -1,3 +1,5 @@
 libclang-py3
 nose
 coala>=0.0.dev0
+cpplint
+
