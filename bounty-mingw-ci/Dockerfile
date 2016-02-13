@@ -1,6 +1,6 @@
 FROM rubdos/fedora-mingw
 
-RUN yum install -y python3-devel
+RUN dnf install -y python3-devel
 
 RUN git clone https://github.com/TheBounty/Core.git
 
